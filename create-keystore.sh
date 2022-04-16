@@ -17,6 +17,5 @@ echo "Generation de la demande pour depot à la PNCN"
 echo "keytool -certreq -alias $keystorename -keystore $file -file $req -storepass $mdp -keypass $mdp"
 echo "copie de sauvegarde keystore à blanc"
 echo "import des certificats racine PNCN"
-echo "test"
 fi
 
