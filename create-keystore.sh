@@ -13,5 +13,6 @@ read -p "Entrez le mot de passe du keystore (storepass/keypass) : " mdp
 echo $keystorename."jks"
 echo "copie de sauvegarde keystore à blanc"
 echo "import des certificats racine PNCN"
+echo "test"
 fi
 
