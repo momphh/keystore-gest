@@ -11,6 +11,7 @@ read -p "Entrez le mot de passe du keystore (storepass/keypass) : " mdp
 file=$(echo $keystorename."jks")
 req=$(echo $keystorename."csr")
 dname=$(echo "\"CN="$keystorename", OU=Academie de la Martinique, OU=0002 110043015, O=Education Nationale, L=Martinique, C=FR\"")
+echo "Création du keystore"
 echo "keytool -genkey -keyalg \"RSA\" -keysize 2048 -validity 1095 -alias $keystorename -keystore $file -dname $dname -storepass $mdp -keypass $mdp"
 echo "Generation de la demande pour depot à la PNCN"
 echo "keytool -certreq -alias $keystorename -keystore $file -file $req -storepass $mdp -keypass $mdp"
