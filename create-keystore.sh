@@ -14,7 +14,7 @@ dname=$(echo "\"CN="$keystorename", OU=Academie de la Martinique, OU=0002 110043
 echo "Création du keystore"
 echo "keytool -genkey -keyalg \"RSA\" -keysize 2048 -validity 1095 -alias $keystorename -keystore $file -dname $dname -storepass $mdp -keypass $mdp"
 echo "Generation de la demande pour depot à la PNCN"
-echo "keytool -certreq -alias $keystorename -keystore $file -file $req -storepass $mdp -keypass $mdp"
+echo "keytool -certreq -alias $keystorename -keystore $file -file $req -storepass $mdp -keypass $mdp -ext \"DNS:$HOSTNAME\""
 echo "copie de sauvegarde keystore à blanc"
 echo "import des certificats racine PNCN"
 fi
