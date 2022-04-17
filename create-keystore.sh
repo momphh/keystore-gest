@@ -6,7 +6,7 @@ read -p "Voulez-vous generer le fichier keystore de type JKS <O/N> " prompt
 
 if [[ $prompt == "o" || $prompt == "O" || $prompt == "oui" || $prompt == "Oui" ]]
 then
-read -p "Entrez le nom complet du keysore : " keystorename
+read -p "Entrez le nom complet du keystore : " keystorename
 read -p "Entrez le mot de passe du keystore (storepass/keypass) : " mdp
 file=$(echo $keystorename."jks")
 req=$(echo $keystorename."csr")
