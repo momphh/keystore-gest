@@ -19,5 +19,13 @@ keytool -certreq -alias $keystorename -keystore $file -file $req -storepass $mdp
 echo "copie de sauvegarde keystore avant importation chaine"
 cp $file $file."key-only"
 echo "import des certificats racine PNCN"
+if [[ -f ac-men.cer  || -f ac-menesr.cer || -f ac-men-infrastructures.cer ]]
+then
+keytool -noprompt -import -alias AC_Racine_ENESR -keystore $file -file ac_racine_menesr.cer -storepass $mdp -trustcacerts
+keytool -noprompt -import -alias AC_Education_Nationale -keystore $file -file ac-men.cer -storepass $mdp -trustcacerts
+keytool -noprompt -import -alias AC_EN_Infrastructures -keystore $file -file ac-men-infrastructures.cer -storepass $mdp -trustcacerts
+else
+echo "fichiers de chaine de certification non présents"
+fi   
 fi
 
