@@ -21,8 +21,11 @@ cp $file $file."key-only"
 echo "import des certificats racine PNCN"
 if [[ -f ac-men.cer  || -f ac-menesr.cer || -f ac-men-infrastructures.cer ]]
 then
-keytool -noprompt -import -alias AC_Racine_ENESR -keystore $file -file ac_racine_menesr.cer -storepass $mdp -trustcacerts
+echo "import alias AC_Racine_ENESR"	
+keytool -noprompt -import -alias AC_Racine_ENESR -keystore $file -file ac_menesr.cer -storepass $mdp -trustcacerts
+echo "import alias AC_Education_Nationale"
 keytool -noprompt -import -alias AC_Education_Nationale -keystore $file -file ac-men.cer -storepass $mdp -trustcacerts
+echo "import alias AC_EN_Infrastructures"
 keytool -noprompt -import -alias AC_EN_Infrastructures -keystore $file -file ac-men-infrastructures.cer -storepass $mdp -trustcacerts
 else
 echo "fichiers de chaine de certification non présents"
