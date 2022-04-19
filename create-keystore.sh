@@ -27,6 +27,8 @@ echo "import alias AC_Education_Nationale"
 keytool -noprompt -import -alias AC_Education_Nationale -keystore $file -file ac-men.cer -storepass $mdp -trustcacerts
 echo "import alias AC_EN_Infrastructures"
 keytool -noprompt -import -alias AC_EN_Infrastructures -keystore $file -file ac-men-infrastructures.cer -storepass $mdp -trustcacerts
+echo "Formatage PKCS12 jks"
+keytool -importkeystore -srckeystore $file -destkeystore $file -deststoretype pkcs12 -storepass $mdp
 else
 echo "fichiers de chaine de certification non présents"
 fi   
