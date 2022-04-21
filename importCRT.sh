@@ -5,9 +5,9 @@
 read -p "Entrer le nom du keystore : " keystore
 read -p "Entrez le mot de passe du keystore pour intégrer le certificat : " mdp
 alias=${keystore%????}
-if [[ -f $keystore ]] 
+if [[ -f $keystore && -f $1 ]] 
 then
 echo "keytool -import -alias $alias -keystore $keystore -file $1 -storepass $mdp"
 else
-echo "keystore non présent"
+echo "keystore non présent ou fichier .pem non passé en paramètre"
 fi
